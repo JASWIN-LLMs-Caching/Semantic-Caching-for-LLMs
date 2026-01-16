@@ -6,6 +6,8 @@ import uvicorn
 from pydantic import BaseModel
 from fastapi import FastAPI, Request, HTTPException
 
+from semantic_cache.manager.data_manager.init_schema import *
+
 from semantic_cache.adapter.api import put, get, flush
 
 app = FastAPI()
@@ -36,6 +38,9 @@ def main():
         allow_methods=["*"],
         allow_headers=["*"],
     )
+
+    init_redis_schema()
+    init_milvus_schema()
 
     uvicorn.run(app, port=8000)
 

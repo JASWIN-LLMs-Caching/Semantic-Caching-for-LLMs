@@ -1,2 +1,6 @@
 fastapi
 uvicorn
+redis
+pydantic-settings
+python-dotenv
+pymilvus
